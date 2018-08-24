@@ -1,0 +1,39 @@
+{{!< default}}
+{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
+
+<header class="site-header outer">
+    <div class="inner">
+        <div class="site-header-content">
+            <h1 class="site-title">
+                {{@blog.title}}
+            </h1>
+            {{!-- <h2 class="site-description">{{@blog.description}}</h2> --}}
+        </div>
+        {{> "site-nav"}}
+    </div>
+</header>
+
+{{!-- The big featured header, it uses blog cover image as a BG if available --}}
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+        {{#tag}}
+            <div class="post-hero post-hero__tags">
+                <div class="post-title">
+                    <div class="post-title-flexer">
+                        <h1 class="post-full-title">{{name}}</h1>
+                        <p>{{description}}</p>
+                    </div>
+                </div>
+            </div>
+        {{/tag}}
+        <div class="post-feed">
+            {{#foreach posts}}
+
+                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                {{> "post-card"}}
+
+            {{/foreach}}
+        </div>
+    </div>
+</main>
